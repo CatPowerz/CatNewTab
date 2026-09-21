@@ -24,7 +24,7 @@ if (searchinput || searchbtn) {
         window.location.href = `https://duckduckgo.com/?q=${encodeURIComponent(searchinput.value)}`;
        }  
     })
-    searchinput.addEventListener('click', function() {
+    searchbtn.addEventListener('click', function() {
         window.location.href = `https://duckduckgo.com/?q=${encodeURIComponent(searchinput.value)}`;
        
     })

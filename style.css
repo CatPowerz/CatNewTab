@@ -1,12 +1,21 @@
-.bgimage {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
+body {
     margin: 0;
     padding: 0;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.bgimage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
     filter: blur(5px) brightness(0.4);
     z-index: -10;
 }
+
 .panel {
 box-sizing: border-box;
 
