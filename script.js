@@ -9,3 +9,11 @@ function updateClock() {
 }
 updateClock();
 setInterval(updateClock, 1000);
+
+catfactbutton = document.getElementById("randomcatfactbtn")
+catfacttext = document.getElementById("catfacttext")
+if(catfactbutton) {
+    catfactbutton.addEventListener('click', function() {
+        catfacttext.textContent = "Euhhhh als katten gestresst raken gaan ze schijten op het bed"
+    })
+}
