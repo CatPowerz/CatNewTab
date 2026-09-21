@@ -9,11 +9,23 @@ function updateClock() {
 }
 updateClock();
 setInterval(updateClock, 1000);
-
+searchinput = document.getElementById("searchinput")
 catfactbutton = document.getElementById("randomcatfactbtn")
 catfacttext = document.getElementById("catfacttext")
+searchbtn = document.getElementById("searchbtn")
 if(catfactbutton) {
     catfactbutton.addEventListener('click', function() {
-        catfacttext.textContent = "Euhhhh als katten gestresst raken gaan ze schijten op het bed"
+        catfacttext.textContent = "Placeholder";
+    })
+}
+if (searchinput || searchbtn) {
+    searchinput.addEventListener('keypress', (e) => {
+       if(e.key === 'Enter' && searchinput.value.trim() !== '') {
+        window.location.href = `https://duckduckgo.com/?q=${encodeURIComponent(searchinput.value)}`;
+       }  
+    })
+    searchinput.addEventListener('click', function() {
+        window.location.href = `https://duckduckgo.com/?q=${encodeURIComponent(searchinput.value)}`;
+       
     })
 }
