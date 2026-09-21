@@ -13,14 +13,10 @@ searchinput = document.getElementById("searchinput")
 catfactbutton = document.getElementById("randomcatfactbtn")
 catfacttext = document.getElementById("catfacttext")
 searchbtn = document.getElementById("searchbtn")
-if(catfactbutton) {
-    catfactbutton.addEventListener('click', function() {
-        catfacttext.textContent = "Placeholder";
-    })
-}
+
 if (searchinput || searchbtn) {
-    searchinput.addEventListener('keypress', (e) => {
-       if(e.key === 'Enter' && searchinput.value.trim() !== '') {
+    searchinput.addEventListener('keypress', (key) => {
+       if(key.key === 'Enter' && searchinput.value.trim() !== '') {
         window.location.href = `https://duckduckgo.com/?q=${encodeURIComponent(searchinput.value)}`;
        }  
     })
@@ -28,4 +24,19 @@ if (searchinput || searchbtn) {
         window.location.href = `https://duckduckgo.com/?q=${encodeURIComponent(searchinput.value)}`;
        
     })
+}
+
+
+if (catfactbutton && catfacttext) {
+    catfactbutton.addEventListener('click', function() {
+        catfacttext.textContent = "Finding cat fact...";
+        fetch('https://catfact.ninja/fact')
+            .then(res => res.json())
+            .then(data => {
+                catfacttext.textContent = data.fact;
+            })
+            .catch(() => {
+                catfacttext.textContent = "Something went wrong.";
+            });
+    });
 }
